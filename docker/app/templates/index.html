@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head>
+<title>{{ title }}</title>
+<body>
+<h3>一覧</h3>
+<ul>
+{% for user in users %}
+    <li>{{ user.id }} : {{ user.name }}</li>
+{% endfor %}
+</ul>
+</body>
+</head>
