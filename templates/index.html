@@ -2,12 +2,36 @@
 <html>
 <head>
 <title>{{ title }}</title>
-<body>
-<h3>ユーザ一覧</h3>
-<ul>
-{% for user in users %}
-    <li>{{ user.id }} : {{ user.name }}</li>
-{% endfor %}
-</ul>
-</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
+
+<body>
+<div class="container">
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Navbar</a>
+        <form action="/" method="post" class="form-inline">
+            <input class="form-control mr-sm-2" type="text" name="id" placeholder="id">
+            <input class="form-control mr-sm-2" type="text" name="name" placeholder="name">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+        </form>
+    </nav>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<div>
+</body>
