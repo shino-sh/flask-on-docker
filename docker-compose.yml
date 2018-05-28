@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    command: python hello.py
+    ports:
+      - "5000:5000"
+    networks:
+      - flask-net
+    volumes:
+      - .:/myapp
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root 
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - flask-net
+
+networks:
+  flask-net:
+volumes:
+  db-data:
