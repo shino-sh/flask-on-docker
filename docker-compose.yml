@@ -19,6 +19,7 @@ services:
       MYSQL_ROOT_PASSWORD: root 
     volumes:
       - db-data:/var/lib/mysql
+      - ./initdb.d:/docker-entrypoint-initdb.d
     networks:
       - flask-net
 
